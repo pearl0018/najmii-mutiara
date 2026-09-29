@@ -26,7 +26,7 @@ h2{font-size:clamp(2.1rem,8vw,3rem);font-style:italic;margin-bottom:1.5rem;text-
 section{position:relative;overflow:hidden;padding:5.5rem var(--u);max-width:44rem;margin:0 auto;text-align:center}
 .fabric{background:linear-gradient(rgba(251,246,240,.6),rgba(251,246,240,.6)),url(assets/deco/bg-fabric.jpg) center/cover;background-color:#F3EFE8;max-width:none;padding:5rem var(--u)}
 .fabric .in{max-width:40rem;margin:0 auto}
-.introbg{background:linear-gradient(rgba(251,246,240,.68),rgba(251,246,240,.68)),url(assets/deco/bg-intro.jpg) center/cover;background-color:#F3EFE8;max-width:none;padding:5rem var(--u)}
+.introbg{background:linear-gradient(rgba(20,32,20,.5),rgba(45,20,28,.56)),url(assets/deco/bg-green.jpg) center/cover;background-color:#233021;color:#F7EDE4;max-width:none;padding:5rem var(--u)}
 .dark{background:linear-gradient(rgba(251,246,240,.62),rgba(251,246,240,.62)),url(assets/deco/bg-feather.jpg) center/cover;background-color:#F3EFE8;color:var(--ink);max-width:none;padding:5rem var(--u)}
 .dark .in{max-width:40rem;margin:0 auto}
 .small{font-size:.95rem;opacity:.75}
@@ -40,11 +40,15 @@ body::before{left:0}body::after{right:0;transform:scaleX(-1)}
 .seam{position:relative;z-index:6;height:36px;margin:-18px 0;background:url(assets/deco/lace-h.webp) repeat-x center/auto 100%;filter:drop-shadow(0 2px 3px rgba(120,60,70,.28));pointer-events:none}
 
 /* ---------- Ribbon photo frames ---------- */
-.gf{position:relative;display:inline-block;padding:4px 20px;background:var(--cream);border-radius:3px;box-shadow:0 2px 10px rgba(60,30,20,.18)}
-.gf img{display:block;border-radius:1px}
-.gf::before,.gf::after{content:"";position:absolute;top:-8%;bottom:-8%;width:26px;background:url(assets/deco/garland.webp) center/cover;pointer-events:none}
-.gf::before{left:-4px}
-.gf::after{right:-4px;transform:scaleX(-1)}
+.ribbon{position:relative;display:inline-block;padding:9px;border-radius:5px;background:
+  repeating-linear-gradient(135deg,var(--straw) 0 9px,var(--matcha) 9px 18px,#eadfce 18px 22px,var(--matcha) 22px 31px,var(--straw) 31px 40px,#eadfce 40px 44px);
+  box-shadow:0 4px 14px rgba(60,30,20,.22)}
+.ribbon .inner{display:block;background:var(--cream);padding:6px;border-radius:2px}
+.ribbon .inner img{display:block;border-radius:1px}
+.ribbon::after{content:"";position:absolute;top:-13px;left:-13px;width:42px;height:42px;
+  background:conic-gradient(from 210deg,var(--straw) 0 25%,var(--matcha) 25% 50%,var(--straw) 50% 75%,var(--matcha) 75% 100%);
+  border-radius:50% 50% 50% 4px;box-shadow:0 3px 8px rgba(60,30,20,.28);
+  -webkit-mask:radial-gradient(circle at 68% 68%,transparent 34%,#000 35%);mask:radial-gradient(circle at 68% 68%,transparent 34%,#000 35%)}
 
 /* ---------- Reveal on scroll ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .85s ease,transform .85s ease}
@@ -52,7 +56,7 @@ body::before{left:0}body::after{right:0;transform:scaleX(-1)}
 
 /* ============ COVER (no curtain — fade in) ============ */
 #cover{position:fixed;inset:0;z-index:50;overflow:hidden auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.75rem;color:var(--cream);
-  background:radial-gradient(120% 90% at 50% -10%,rgba(125,154,104,.75),transparent 60%),radial-gradient(120% 90% at 50% 110%,rgba(165,68,92,.75),transparent 60%),linear-gradient(180deg,rgba(63,86,54,.88),rgba(74,37,48,.88)),url(assets/deco/bg-intro.jpg) center/cover;
+  background:linear-gradient(rgba(20,32,20,.42),rgba(45,20,28,.5)),url(assets/deco/bg-green.jpg) center/cover;
   transition:opacity 1s ease,visibility 1s}
 #cover .k1{font:italic 1.05rem var(--serif);letter-spacing:.03em;opacity:0;animation:fadeUp 1.1s ease .2s forwards}
 #cover .k2{font-family:var(--script);font-size:clamp(3.4rem,17vw,5.6rem);line-height:1;margin:.6rem 0 1.4rem;opacity:0;animation:fadeUp 1.2s ease .7s forwards}
@@ -74,8 +78,8 @@ body::before{left:0}body::after{right:0;transform:scaleX(-1)}
 /* ============ Hero / opening photo ============ */
 #top{padding-top:6.5rem}
 .hero-photo{position:relative;width:min(66vw,15.5rem);aspect-ratio:736/1308;margin:0 auto 1.4rem;transform:translateY(-60px);opacity:0;transition:transform 1.1s cubic-bezier(.2,.8,.2,1),opacity .8s ease}
-.hero-photo .frame-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:1;pointer-events:none}
-.hero-photo .photo{position:absolute;left:16.2%;top:24.9%;width:67.4%;height:50.1%;border-radius:50%;object-fit:cover;z-index:2}
+.hero-photo .frame-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:2;pointer-events:none}
+.hero-photo .photo{position:absolute;left:15%;top:23%;width:70%;height:53%;border-radius:50%;object-fit:cover;z-index:1}
 #top.in .hero-photo{transform:none;opacity:1}
 .hero-date{font:italic 500 clamp(1.1rem,4.6vw,1.4rem) 'Cormorant Garamond',Georgia,serif;letter-spacing:.03em}
 .hero-venue{font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-top:.35rem}
@@ -114,7 +118,7 @@ body::before{left:0}body::after{right:0;transform:scaleX(-1)}
 .filmcell .photo{position:absolute;left:3.5%;top:6.1%;width:92.9%;height:87.9%;object-fit:cover;z-index:1;filter:sepia(.05) contrast(1.03)}
 
 /* ============ Event details ============ */
-.events{display:grid;gap:0;margin:1.5rem 0 0;text-align:left}
+.events{display:grid;gap:0;margin:1.5rem 0 0;text-align:center}
 .ev{padding:1.6rem 0;border-top:1px solid rgba(60,42,46,.18)}
 .ev:last-child{border-bottom:1px solid rgba(60,42,46,.18)}
 .ev h3{font-size:1.6rem;font-style:italic}
@@ -157,7 +161,7 @@ fieldset legend{grid-column:1/-1;margin-bottom:.3rem}
 #closing{padding:5rem var(--u) calc(5.5rem + env(safe-area-inset-bottom))}
 #closing h2{font-family:var(--script);font-size:clamp(2.6rem,11vw,4rem);font-style:normal;margin-bottom:.2rem}
 #closing .sub{font:italic 1.6rem var(--serif);margin:.3rem 0 1.6rem}
-#closing .rf img{width:min(78vw,20rem);aspect-ratio:4/5;object-fit:cover}
+#closing .ribbon img{width:min(78vw,20rem);aspect-ratio:4/5;object-fit:cover}
 
 /* ============ Music ============ */
 #music{position:fixed;right:calc(var(--u) + .6rem);bottom:calc(1rem + env(safe-area-inset-bottom));z-index:40;width:3rem;height:3rem;border-radius:50%;border:1px solid var(--straw);background:var(--matcha-d);color:var(--cream);cursor:pointer;display:none}
@@ -199,7 +203,7 @@ footer{padding:2rem var(--u) 1rem;text-align:center}
 <main>
 <!-- HERO -->
 <section id="top" class="introbg">
-  <div class="hero-photo"><img class="frame-bg" src="assets/deco/frame1.jpg" alt=""><img class="photo" src="assets/photos/duo.jpg" alt="Najmii and Mutiara"></div>
+  <div class="hero-photo"><img class="frame-bg" src="assets/deco/frame1-ring.webp" alt=""><img class="photo" src="assets/photos/duo.jpg" alt="Najmii and Mutiara"></div>
   <p class="hero-date" data-k="dateLong"></p>
   <p class="hero-venue" data-k="venueShort"></p>
   <div id="cd" role="timer" aria-live="off">
@@ -215,13 +219,13 @@ footer{padding:2rem var(--u) 1rem;text-align:center}
   <h2 class="reveal">Kedua Mempelai</h2>
   <div class="pair">
     <div class="pcard reveal">
-      <div class="gf"><img src="assets/photos/groom-solo.jpg" alt="Najmii" style="width:min(60vw,13rem);aspect-ratio:1/1;object-fit:cover"></div>
+      <div class="ribbon"><span class="inner"><img src="assets/photos/groom-solo.jpg" alt="Najmii" style="width:min(60vw,13rem);aspect-ratio:1/1;object-fit:cover"></span></div>
       <h3 data-k="groom"></h3>
       <p class="role">Putra ketiga dari<br><span data-k="groomFather"></span> &amp; <span data-k="groomMother"></span></p>
     </div>
     <div class="amp-symbol reveal">&amp;</div>
     <div class="pcard reveal">
-      <div class="gf"><img src="assets/photos/bride-solo.jpg" alt="Mutiara" style="width:min(60vw,13rem);aspect-ratio:1/1;object-fit:cover"></div>
+      <div class="ribbon"><span class="inner"><img src="assets/photos/bride-solo.jpg" alt="Mutiara" style="width:min(60vw,13rem);aspect-ratio:1/1;object-fit:cover"></span></div>
       <h3 data-k="bride"></h3>
       <p class="role">Putri pertama dari<br><span data-k="brideFather"></span> &amp; <span data-k="brideMother"></span></p>
     </div>
@@ -323,7 +327,7 @@ footer{padding:2rem var(--u) 1rem;text-align:center}
 <section id="closing" class="introbg">
   <h2>See You in Our Wedding</h2>
   <p class="sub"><span data-k="groomNick"></span> &amp; <span data-k="brideNick"></span></p>
-  <div class="gf"><img src="assets/photos/duo.jpg" alt="Najmii and Mutiara" style="width:min(78vw,20rem);aspect-ratio:4/5;object-fit:cover"></div>
+  <div class="ribbon"><span class="inner"><img src="assets/photos/duo.jpg" alt="Najmii and Mutiara" style="width:min(78vw,20rem);aspect-ratio:4/5;object-fit:cover"></span></div>
 </section>
 
 <footer>
